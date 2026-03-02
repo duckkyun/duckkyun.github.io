@@ -1,0 +1,23 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var nav = document.querySelector('.greedy-nav');
+    if (!nav) return;
+
+    var toggle = nav.querySelector('.greedy-nav__toggle');
+    if (!toggle) return;
+
+    toggle.setAttribute('aria-expanded', 'false');
+
+    toggle.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('menu-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target)) {
+        nav.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
