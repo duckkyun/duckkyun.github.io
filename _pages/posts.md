@@ -5,8 +5,8 @@ permalink: /posts/
 author_profile: false
 ---
 
-{% include base_path %}
-
+<ul>
 {% for post in site.posts %}
-  {% include archive-single.html type="list" %}
+  <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <small>{{ post.date | date: "%Y-%m-%d" }}</small></li>
 {% endfor %}
+</ul>
