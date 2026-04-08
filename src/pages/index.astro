@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const experiences = [
+  {
+    date: '2026.01 - 2026.02',
+    title: 'Winter Internship at Yonsei University College of Medicine',
+    description:
+      'Completed an internship in the Department of Biomedical Sciences under the guidance of Ji-Hwan Ryu.',
+  },
+  {
+    date: '2025.11',
+    title: 'Korea Press Foundation Program',
+    description:
+      'Completed the “Media Statistics Data Complete Mastery” program and was selected as an outstanding participant.',
+  },
+  {
+    date: '2025.07',
+    title: 'Statistical Genetics Workshop',
+    description:
+      'Completed training in basic metagenome analysis with a focus on 16S rRNA gene sequencing data.',
+  },
+  {
+    date: '2025.03 - 2025.08',
+    title: 'Math Instructor at Eduprime Academy',
+    description:
+      'Taught mathematics to middle and high school students in Gwangjin-gu.',
+  },
+  {
+    date: '2024.05 - 2024.06',
+    title: 'Upcycling Idea Competition',
+    description:
+      'Received an excellence award (3rd place) in an upcycled agricultural product idea competition.',
+  },
+  {
+    date: '2022.09 - 2024.08',
+    title: 'Math and Science Instructor at Eduplex Educoach',
+    description:
+      'Taught mathematics and science to middle and high school students in Mokdong.',
+  },
+  {
+    date: '2022.02 - 2022.12',
+    title: 'Student Leadership',
+    description:
+      'Served as president of the leisure sports club “Eokkaedongmu.”',
+  },
+  {
+    date: '2021.04 - 2022.04',
+    title: 'Early Programs and Activities',
+    description:
+      'Participated in a skincare brand ambassador program, completed a pharmaceutical and biotechnology talent camp, and received an excellence prize in a pharma and biotech brand marketing competition.',
+  },
+];
+---
+
+<Layout
+  title="Duck-kyun Woo"
+  description="Duck-kyun Woo is a student at Konkuk University with training in Cosmetics Engineering and Advanced Biotechnology."
+>
+  <main class="site-shell">
+    <header class="hero">
+      <nav class="topbar" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Highlights</a>
+        <a href="https://github.com/duckkyun" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Personal Homepage</p>
+          <h1>Duck-kyun Woo</h1>
+          <p class="hero-text">
+            I am a student at Konkuk University with undergraduate training in
+            Cosmetics Engineering and Advanced Biotechnology, and a growing interest
+            in microbiome research, immune homeostasis, and translational biomedical science.
+          </p>
+          <div class="button-row">
+            <a class="button" href="https://github.com/duckkyun" target="_blank" rel="noreferrer">View GitHub</a>
+            <a class="button ghost" href="#experience">See experience</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <p class="card-label">Current Snapshot</p>
+          <ul class="summary-list">
+            <li>B.S. double major at Konkuk University</li>
+            <li>Expected graduation: August 2026</li>
+            <li>Total GPA: 4.32 / 4.5</li>
+            <li>Major GPA: 4.32 / 4.5</li>
+          </ul>
+        </aside>
+      </div>
+    </header>
+
+    <section id="about" class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>Education and direction</h2>
+        </div>
+        <p class="section-note">
+          This first version is based on the CV and is meant to serve as a clean starting point
+          for a fuller personal academic website.
+        </p>
+      </div>
+
+      <div class="card-grid two">
+        <article class="card">
+          <p class="card-label">Education</p>
+          <h3>Konkuk University</h3>
+          <p>
+            B.S. double major in Cosmetics Engineering and Advanced Biotechnology
+            <br />
+            March 2021 - August 2026 (expected)
+          </p>
+          <p>Seoul, South Korea</p>
+        </article>
+
+        <article class="card">
+          <p class="card-label">Focus</p>
+          <h3>Emerging research interests</h3>
+          <p>
+            Building a foundation in host-microbe interaction, experimental model systems,
+            and immune biology, with a longer-term interest in translational microbiome research.
+          </p>
+        </article>
+      </div>
+
+      <div class="quick-facts">
+        <article class="fact">
+          <p class="fact-label">Overall GPA</p>
+          <p class="fact-value">4.32 / 4.5</p>
+        </article>
+        <article class="fact">
+          <p class="fact-label">Major GPA</p>
+          <p class="fact-value">4.32 / 4.5</p>
+        </article>
+        <article class="fact">
+          <p class="fact-label">Credits</p>
+          <p class="fact-value">132 completed</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Experience</p>
+          <h2>Selected activities</h2>
+        </div>
+        <p class="section-note">
+          A compact timeline of academic, teaching, and extracurricular experiences from undergraduate years.
+        </p>
+      </div>
+
+      <div class="timeline">
+        {experiences.map((item) => (
+          <article class="timeline-item">
+            <p class="timeline-date">{item.date}</p>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="card-grid two">
+        <article class="card">
+          <p class="card-label">English Proficiency</p>
+          <h3>Language scores</h3>
+          <ul class="simple-list">
+            <li>TOEIC 825 (RC 430, LC 395), February 2025</li>
+            <li>TEPS 350, March 2026</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <p class="card-label">Additional Information</p>
+          <h3>Highlights</h3>
+          <ul class="simple-list">
+            <li>Entered Konkuk University with distinction.</li>
+            <li>Top-ranked entrant in the Department of Cosmetics Engineering.</li>
+            <li>Full scholarship recipient.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Duck-kyun Woo</p>
+      <p>
+        Built with Astro and deployed via GitHub Pages.
+      </p>
+    </footer>
+  </main>
+</Layout>
