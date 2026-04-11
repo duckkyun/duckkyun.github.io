@@ -1,0 +1,54 @@
+---
+import SiteShell from '../components/SiteShell.astro';
+type Frontmatter = {
+  title: string;
+  date: string;
+  categories?: string[];
+  tags?: string[];
+};
+
+const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
+
+const pageTitle = `${frontmatter.title} | Duck-kyun Woo`;
+
+const date = new Date(frontmatter.date);
+const year = date.getFullYear();
+const month = `${date.getMonth() + 1}`.padStart(2, '0');
+const day = `${date.getDate()}`.padStart(2, '0');
+const formattedDate = `${year}.${month}.${day}`;
+
+function toSlug(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[\s/]+/g, '-')
+    .replace(/[^\p{Letter}\p{Number}-]+/gu, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+---
+
+<SiteShell title={pageTitle} description={frontmatter.title}>
+  <article class="article-page">
+    <header class="article-header">
+      <h1>{frontmatter.title}</h1>
+      <div class="article-meta">
+        <span class="meta-badge">{formattedDate}</span>
+        {(frontmatter.categories ?? []).map((category) => (
+          <a href={`/categories/${toSlug(category)}/`} class="meta-badge secondary">
+            {category}
+          </a>
+        ))}
+        {(frontmatter.tags ?? []).map((tag) => (
+          <a href={`/tags/${toSlug(tag)}/`} class="tag-badge">
+            #{tag}
+          </a>
+        ))}
+      </div>
+    </header>
+
+    <main class="markdown-body">
+      <slot />
+    </main>
+  </article>
+</SiteShell>

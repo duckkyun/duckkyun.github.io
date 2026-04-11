@@ -1,0 +1,27 @@
+---
+import SiteShell from '../../components/SiteShell.astro';
+import { tags } from '../../data/blog';
+
+const pageTitle = 'Tags | Duck-kyun Woo';
+---
+
+<SiteShell title={pageTitle} description="Browse posts by tag">
+  <section class="archive-header">
+    <p class="archive-eyebrow">Tags</p>
+    <h1>Tag Archive</h1>
+    <p class="archive-description">
+      세부 키워드별로 글을 찾아볼 수 있는 태그 페이지입니다.
+    </p>
+  </section>
+
+  <div class="taxonomy-grid">
+    {tags.map((tag) => (
+      <article class="taxonomy-card">
+        <a href={tag.url} class="taxonomy-link">
+          <h2>#{tag.name}</h2>
+          <p>{tag.count} post{tag.count === 1 ? '' : 's'}</p>
+        </a>
+      </article>
+    ))}
+  </div>
+</SiteShell>

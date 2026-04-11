@@ -1,0 +1,19 @@
+---
+import SiteShell from '../../components/SiteShell.astro';
+import PostList from '../../components/PostList.astro';
+import { posts } from '../../data/blog';
+
+const pageTitle = 'Posts | Duck-kyun Woo';
+---
+
+<SiteShell title={pageTitle} description="All posts by Duck-kyun Woo">
+  <section class="archive-header">
+    <p class="archive-eyebrow">Posts</p>
+    <h1>All Posts</h1>
+    <p class="archive-description">
+      현재 작성한 글 전체를 시간순으로 정리한 페이지입니다.
+    </p>
+  </section>
+
+  <PostList posts={posts} />
+</SiteShell>

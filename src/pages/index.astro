@@ -1,13 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-const sectionLinks = [
-  { href: '#profile', label: 'Profile' },
-  { href: '#links', label: 'Links' },
-  { href: '#education', label: 'Education' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#highlights', label: 'Highlights' },
-];
+import PostList from '../components/PostList.astro';
+import SiteShell from '../components/SiteShell.astro';
+import { categories, posts } from '../data/blog';
 
 const profileLinks = [
   { label: 'Homepage', value: 'duckkyun.github.io', href: 'https://duckkyun.github.io/' },
@@ -93,181 +87,187 @@ const highlights = [
   'Top-ranked entrant in the Department of Cosmetics Engineering.',
   'Full scholarship recipient.',
 ];
+
+const recentPosts = posts.slice(0, 5);
 ---
 
-<Layout
+<SiteShell
   title="Duck-kyun Woo"
   description="Duck-kyun Woo is a student at Konkuk University with training in Cosmetics Engineering and Advanced Biotechnology."
 >
-  <header class="site-header">
-    <div class="page-shell header-inner">
-      <a class="brand" href="#profile">Duck-kyun Woo</a>
-      <nav class="header-nav" aria-label="Primary">
-        {sectionLinks.map((link) => (
-          <a href={link.href}>{link.label}</a>
-        ))}
-        <a href="https://github.com/duckkyun" target="_blank" rel="noreferrer">GitHub</a>
-      </nav>
+  <section class="home-hero">
+    <p class="archive-eyebrow">Personal Homepage</p>
+    <h1 class="page-title">Duck-kyun Woo</h1>
+    <p class="profile-summary">
+      I am a student at Konkuk University with undergraduate training in
+      Cosmetics Engineering and Advanced Biotechnology, and a growing interest
+      in microbiome research, immune homeostasis, and translational biomedical science.
+    </p>
+    <div class="hero-actions">
+      <a class="button-link primary" href="/categories/">Browse categories</a>
+      <a class="button-link" href="/posts/">Read posts</a>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <div id="container" class="page-shell page-grid">
-      <aside class="sidebar">
-        <nav class="sidebar-nav" aria-label="Section">
-          <p class="sidebar-heading">Navigate</p>
-          {sectionLinks.map((link) => (
-            <a class="sidebar-link" href={link.href}>{link.label}</a>
-          ))}
-          <a
-            class="sidebar-link external"
-            href="https://github.com/duckkyun"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
+  <div class="home-panel-grid">
+    <section class="panel-card">
+      <h2>Profile</h2>
+      <div class="profile-intro">
+        <div>
+          <div class="profile-avatar" aria-hidden="true">DW</div>
+          <p class="avatar-note">Profile image: (공백)</p>
+        </div>
+
+        <div>
+          <p class="profile-role">B.S. Student at Konkuk University</p>
+          <ul class="profile-meta">
+            <li>B.S. double major in Cosmetics Engineering and Advanced Biotechnology</li>
+            <li>March 2021 - August 2026 (expected)</li>
+            <li>Seoul, South Korea</li>
+          </ul>
+          <p class="profile-note">
+            This version keeps the original content from the existing homepage,
+            but reorganizes it into a more archive-like personal site.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-card">
+      <h2>Links</h2>
+      <ul class="link-list">
+        {profileLinks.map((item) => (
+          <li class="link-item">
+            <span class="link-label">{item.label}</span>
+            <span class="link-value">
+              {item.href ? (
+                <a href={item.href} target="_blank" rel="noreferrer">
+                  {item.value}
+                </a>
+              ) : (
+                item.value
+              )}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+
+  <section class="home-section">
+    <div class="section-header">
+      <div>
+        <p class="archive-eyebrow">Writing</p>
+        <h2>Recent Posts</h2>
+      </div>
+      <a class="section-link" href="/posts/">All posts</a>
+    </div>
+    <PostList posts={recentPosts} />
+  </section>
+
+  <section class="home-section">
+    <div class="section-header">
+      <div>
+        <p class="archive-eyebrow">Archive</p>
+        <h2>Categories</h2>
+      </div>
+      <a class="section-link" href="/categories/">All categories</a>
+    </div>
+
+    <div class="taxonomy-grid">
+      {categories.map((category) => (
+        <article class="taxonomy-card">
+          <a href={category.url} class="taxonomy-link">
+            <h3>{category.name}</h3>
+            <p>{category.count} post{category.count === 1 ? '' : 's'}</p>
           </a>
-        </nav>
-      </aside>
+        </article>
+      ))}
+    </div>
+  </section>
 
-      <article class="content-column home-profile">
-        <section id="profile" class="page-section">
-          <h1 class="page-title">Duck-kyun Woo</h1>
-          <div class="profile-intro">
-            <div>
-              <div class="profile-avatar" aria-hidden="true">DW</div>
-              <p class="avatar-note">Profile image: (공백)</p>
-            </div>
+  <section class="home-section">
+    <div class="section-header">
+      <div>
+        <p class="archive-eyebrow">Education</p>
+        <h2>Education and Direction</h2>
+      </div>
+    </div>
 
-            <div>
-              <p class="profile-role">B.S. Student at Konkuk University</p>
-              <p class="profile-summary">
-                I am a student at Konkuk University with undergraduate training in
-                Cosmetics Engineering and Advanced Biotechnology, and a growing interest
-                in microbiome research, immune homeostasis, and translational biomedical science.
-              </p>
-              <ul class="profile-meta">
-                <li>B.S. double major in Cosmetics Engineering and Advanced Biotechnology</li>
-                <li>March 2021 - August 2026 (expected)</li>
-                <li>Seoul, South Korea</li>
-              </ul>
-              <p class="profile-note">
-                This first version is based on the CV and is meant to serve as a clean
-                starting point for a fuller personal academic website.
-              </p>
-            </div>
-          </div>
-        </section>
+    <div class="home-panel-grid">
+      <article class="panel-card">
+        <h3>Konkuk University</h3>
+        <p>B.S. double major in Cosmetics Engineering and Advanced Biotechnology</p>
+        <p>March 2021 - August 2026 (expected)</p>
+        <p>Seoul, South Korea</p>
 
-        <hr />
+        <div class="fact-grid">
+          {quickFacts.map((fact) => (
+            <article class="fact-card">
+              <span class="fact-label">{fact.label}</span>
+              <strong class="fact-value">{fact.value}</strong>
+            </article>
+          ))}
+        </div>
+      </article>
 
-        <section id="links" class="page-section">
-          <h2>Links</h2>
-          <ul class="link-list">
-            {profileLinks.map((item) => (
-              <li class="link-item">
-                <span class="link-label">{item.label}</span>
-                <span class="link-value">
-                  {item.href ? (
-                    <a href={item.href} target="_blank" rel="noreferrer">
-                      {item.value}
-                    </a>
-                  ) : (
-                    item.value
-                  )}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <hr />
-
-        <section id="education" class="page-section">
-          <h2>Education</h2>
-          <div class="detail-block">
-            <h3>Konkuk University</h3>
-            <p>B.S. double major in Cosmetics Engineering and Advanced Biotechnology</p>
-            <p>March 2021 - August 2026 (expected)</p>
-            <p>Seoul, South Korea</p>
-          </div>
-
-          <div class="fact-grid">
-            {quickFacts.map((fact) => (
-              <article class="fact-card">
-                <span class="fact-label">{fact.label}</span>
-                <strong class="fact-value">{fact.value}</strong>
-              </article>
-            ))}
-          </div>
-
-          <h3 class="subsection-title">Research Direction</h3>
-          <p class="section-description">
-            Building a foundation in host-microbe interaction, experimental model systems,
-            and immune biology, with a longer-term interest in translational microbiome research.
-          </p>
-          <ul class="compact-list focus-list">
-            {focusAreas.map((area) => (
-              <li>{area}</li>
-            ))}
-          </ul>
-        </section>
-
-        <hr />
-
-        <section id="experience" class="page-section">
-          <h2>Experience</h2>
-          <p class="section-description">
-            A compact timeline of academic, teaching, and extracurricular experiences
-            from undergraduate years.
-          </p>
-          <div class="experience-list">
-            {experiences.map((item) => (
-              <article class="experience-item">
-                <div>
-                  <span class="date-badge">{item.date}</span>
-                </div>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <hr />
-
-        <section id="highlights" class="page-section">
-          <h2>Highlights</h2>
-          <div class="split-grid">
-            <section>
-              <h3 class="subsection-title">Language Scores</h3>
-              <ul class="compact-list">
-                {languageScores.map((score) => (
-                  <li>{score}</li>
-                ))}
-              </ul>
-            </section>
-
-            <section>
-              <h3 class="subsection-title">Additional Information</h3>
-              <ul class="compact-list">
-                {highlights.map((item) => (
-                  <li>{item}</li>
-                ))}
-              </ul>
-            </section>
-          </div>
-        </section>
+      <article class="panel-card">
+        <h3>Research Direction</h3>
+        <p class="section-description">
+          Building a foundation in host-microbe interaction, experimental model systems,
+          and immune biology, with a longer-term interest in translational microbiome research.
+        </p>
+        <ul class="compact-list focus-list">
+          {focusAreas.map((area) => (
+            <li>{area}</li>
+          ))}
+        </ul>
       </article>
     </div>
-  </main>
+  </section>
 
-  <footer class="site-footer">
-    <div class="page-shell footer-inner">
-      <p>Duck-kyun Woo</p>
-      <p>Built with Astro and deployed via GitHub Pages.</p>
+  <section class="home-section">
+    <div class="section-header">
+      <div>
+        <p class="archive-eyebrow">Experience</p>
+        <h2>Selected Activities</h2>
+      </div>
     </div>
-  </footer>
-</Layout>
+
+    <div class="experience-list">
+      {experiences.map((item) => (
+        <article class="experience-item">
+          <div>
+            <span class="date-badge">{item.date}</span>
+          </div>
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="home-section">
+    <div class="home-panel-grid">
+      <section class="panel-card">
+        <h2>Language Scores</h2>
+        <ul class="compact-list">
+          {languageScores.map((score) => (
+            <li>{score}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="panel-card">
+        <h2>Additional Information</h2>
+        <ul class="compact-list">
+          {highlights.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  </section>
+</SiteShell>

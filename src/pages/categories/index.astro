@@ -1,0 +1,28 @@
+---
+import SiteShell from '../../components/SiteShell.astro';
+import { categories } from '../../data/blog';
+
+const pageTitle = 'Categories | Duck-kyun Woo';
+---
+
+<SiteShell title={pageTitle} description="Browse posts by category">
+  <section class="archive-header">
+    <p class="archive-eyebrow">Categories</p>
+    <h1>Category Archive</h1>
+    <p class="archive-description">
+      글을 주제별로 묶어서 볼 수 있는 페이지입니다. 레퍼런스 사이트처럼 카테고리 중심으로
+      탐색할 수 있게 정리했습니다.
+    </p>
+  </section>
+
+  <div class="taxonomy-grid">
+    {categories.map((category) => (
+      <article class="taxonomy-card">
+        <a href={category.url} class="taxonomy-link">
+          <h2>{category.name}</h2>
+          <p>{category.count} post{category.count === 1 ? '' : 's'}</p>
+        </a>
+      </article>
+    ))}
+  </div>
+</SiteShell>

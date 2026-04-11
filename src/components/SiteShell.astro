@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { categories, tags } from '../data/blog';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Duck-kyun Woo',
+  description = 'Personal homepage and archive of Duck-kyun Woo.',
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+
+const primaryLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Categories', href: '/categories/' },
+  { label: 'Posts', href: '/posts/' },
+  { label: 'Tags', href: '/tags/' },
+];
+
+function isActive(href: string) {
+  if (href === '/') {
+    return pathname === '/';
+  }
+
+  return pathname === href || pathname.startsWith(href);
+}
+---
+
+<Layout title={title} description={description}>
+  <header class="site-header">
+    <div class="page-shell header-inner">
+      <a class="brand" href="/">Duck-kyun Woo</a>
+      <nav class="header-nav" aria-label="Primary">
+        {primaryLinks.map((link) => (
+          <a class={isActive(link.href) ? 'active' : ''} href={link.href}>
+            {link.label}
+          </a>
+        ))}
+        <a href="https://github.com/duckkyun" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-shell page-grid">
+      <aside class="sidebar">
+        <nav class="sidebar-nav" aria-label="Section">
+          <a class={`sidebar-link home-link ${pathname === '/' ? 'active' : ''}`} href="/">
+            Home
+          </a>
+
+          <section class="sidebar-group">
+            <p class="sidebar-heading">Categories</p>
+            <ul class="sidebar-nested">
+              {categories.map((category) => (
+                <li>
+                  <a
+                    class={`sidebar-link ${pathname === category.url ? 'active' : ''}`}
+                    href={category.url}
+                  >
+                    {category.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="sidebar-group">
+            <p class="sidebar-heading">Tags</p>
+            <div class="sidebar-tag-cloud">
+              {tags.map((tag) => (
+                <a
+                  class={`tag-chip ${pathname === tag.url ? 'active' : ''}`}
+                  href={tag.url}
+                >
+                  #{tag.name}
+                </a>
+              ))}
+            </div>
+          </section>
+        </nav>
+      </aside>
+
+      <section class="content-column">
+        <slot />
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-inner">
+      <p>Duck-kyun Woo</p>
+      <p>Built with Astro and deployed via GitHub Pages.</p>
+    </div>
+  </footer>
+</Layout>
