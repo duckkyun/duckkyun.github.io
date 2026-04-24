@@ -1,6 +1,7 @@
 ---
 import SiteShell from '../components/SiteShell.astro';
 import {
+  aboutMeParagraphs,
   contactCards,
   education,
   earnedCreditsPdfUrl,
@@ -8,10 +9,8 @@ import {
   heroStats,
   highlights,
   languageScores,
-  overviewParagraphs,
   researchAreas,
   researchThemes,
-  substackUrl,
   strengths,
 } from '../data/profile';
 ---
@@ -24,31 +23,12 @@ import {
     <section class="hero-section">
       <div class="hero-grid">
         <div class="hero-copy">
-          <p class="archive-eyebrow">Curriculum vitae based website</p>
+          <p class="section-eyebrow">Curriculum vitae based website</p>
           <h1 class="display-title">Duck-kyun Woo</h1>
           <p class="hero-lead">
             An undergraduate at Konkuk University preparing for research-driven work in
             microbiome science, immune homeostasis, and translational biomedical study.
           </p>
-
-          <div class="identity-row">
-            <span class="identity-pill">B.S. Student</span>
-            <span class="identity-pill">Konkuk University</span>
-            <span class="identity-pill">Seoul, South Korea</span>
-          </div>
-
-          <div class="action-row">
-            <a class="button-link primary" href="/#experience">View experience</a>
-            <a class="button-link" href="/#research">Research interests</a>
-            <a
-              class="button-link subtle"
-              href={substackUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Personal blog
-            </a>
-          </div>
         </div>
 
         <aside class="hero-panel">
@@ -101,7 +81,7 @@ import {
 
     <section class="section-card" id="overview">
       <div class="section-heading">
-        <p class="archive-eyebrow">Overview</p>
+        <p class="section-eyebrow">Overview</p>
         <h2>Building a path from interdisciplinary study to biomedical research</h2>
         <p class="section-lede">
           This homepage turns CV-style information into a cleaner personal narrative, with
@@ -112,7 +92,7 @@ import {
       <div class="two-column-grid">
         <article class="surface-card prose-card">
           <h3>About me</h3>
-          {overviewParagraphs.map((paragraph) => (
+          {aboutMeParagraphs.map((paragraph) => (
             <p>{paragraph}</p>
           ))}
         </article>
@@ -130,7 +110,7 @@ import {
 
     <section class="section-card" id="research">
       <div class="section-heading">
-        <p class="archive-eyebrow">Research Direction</p>
+        <p class="section-eyebrow">Research Direction</p>
         <h2>Interests shaped by microbiome, immunity, and experimental systems</h2>
         <p class="section-lede">
           The current direction is to keep strengthening the bridge between foundational
@@ -156,7 +136,7 @@ import {
 
     <section class="section-card" id="education">
       <div class="section-heading">
-        <p class="archive-eyebrow">Education</p>
+        <p class="section-eyebrow">Education</p>
         <h2>Academic foundation and supporting skills</h2>
       </div>
 
@@ -202,7 +182,7 @@ import {
 
     <section class="section-card" id="experience">
       <div class="section-heading">
-        <p class="archive-eyebrow">Experience</p>
+        <p class="section-eyebrow">Experience</p>
         <h2>Selected activities across research, study, and teaching</h2>
       </div>
 

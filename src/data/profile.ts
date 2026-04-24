@@ -36,7 +36,7 @@ export const contactCards = [
   },
 ];
 
-export const overviewParagraphs = [
+export const aboutMeParagraphs = [
   'I am an undergraduate student at Konkuk University with a double major in Cosmetics Engineering and Advanced Biotechnology. My current trajectory centers on microbiome research, immune homeostasis, and translational biomedical science.',
   'Alongside coursework, I have built experience through internships, workshops, and teaching. That mix of lab interest, quantitative study, and communication work is shaping the kind of researcher I want to become.',
 ];
