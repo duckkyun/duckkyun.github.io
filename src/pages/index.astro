@@ -6,6 +6,7 @@ import {
   education,
   earnedCreditsPdfUrl,
   experience,
+  researchFocusSummary,
   heroStats,
   highlights,
   languageScores,
@@ -111,26 +112,32 @@ import {
     <section class="section-card" id="research">
       <div class="section-heading">
         <p class="section-eyebrow">Research Direction</p>
-        <h2>Interests shaped by microbiome, immunity, and experimental systems</h2>
+        <h2>Research direction grounded in biology, systems, and translation</h2>
         <p class="section-lede">
           The current direction is to keep strengthening the bridge between foundational
           bioscience training and translational research questions.
         </p>
       </div>
 
-      <div class="pill-cloud" aria-label="Research areas">
-        {researchAreas.map((area) => (
-          <span class="pill-tag">{area}</span>
-        ))}
-      </div>
+      <div class="research-layout">
+        <article class="surface-card research-summary-card">
+          <h3>Current focus</h3>
+          <p>{researchFocusSummary}</p>
+          <ul class="detail-list">
+            {researchAreas.map((area) => (
+              <li>{area}</li>
+            ))}
+          </ul>
+        </article>
 
-      <div class="three-column-grid">
-        {researchThemes.map((item) => (
-          <article class="surface-card">
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </article>
-        ))}
+        <div class="research-theme-list">
+          {researchThemes.map((item) => (
+            <article class="surface-card">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
 

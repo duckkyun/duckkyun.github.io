@@ -284,28 +284,6 @@ pre {
   font-size: 1.12rem;
 }
 
-.pill-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.pill-tag {
-  display: inline-flex;
-  align-items: center;
-  min-height: 36px;
-  padding: 0 14px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.72);
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.pill-tag {
-  color: var(--accent-strong);
-}
-
 .hero-panel,
 .surface-card {
   height: 100%;
@@ -322,6 +300,8 @@ pre {
 
 .metric-grid,
 .info-list,
+.research-layout,
+.research-theme-list,
 .two-column-grid,
 .three-column-grid {
   display: grid;
@@ -404,6 +384,15 @@ pre {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.research-layout {
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.3fr);
+  align-items: start;
+}
+
+.research-theme-list {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
 .three-column-grid {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
@@ -417,6 +406,11 @@ pre {
 .prose-card {
   display: grid;
   gap: 14px;
+}
+
+.research-summary-card {
+  display: grid;
+  gap: 16px;
 }
 
 .feature-list,
@@ -520,6 +514,8 @@ pre {
   }
 
   .hero-grid,
+  .research-layout,
+  .research-theme-list,
   .three-column-grid {
     grid-template-columns: 1fr;
   }

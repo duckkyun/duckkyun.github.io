@@ -54,6 +54,9 @@ export const researchAreas = [
   'Translational microbiome research',
 ];
 
+export const researchFocusSummary =
+  'I am most interested in research questions that connect microbiome dynamics, experimental systems, and immune regulation to real biomedical problems.';
+
 export const researchThemes = [
   {
     title: 'Microbiome and homeostasis',
