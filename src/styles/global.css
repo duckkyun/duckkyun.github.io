@@ -418,6 +418,21 @@ pre {
   font-weight: 800;
 }
 
+.metric-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--accent-strong);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+}
+
+.metric-link:hover {
+  color: var(--warm);
+}
+
 .info-copy {
   margin-top: 6px;
   color: var(--muted);
@@ -527,6 +542,18 @@ pre {
   margin-bottom: 16px;
   color: var(--accent-strong);
   font-weight: 800;
+}
+
+.document-note {
+  color: var(--muted);
+}
+
+.document-note a {
+  margin-left: 8px;
+  color: var(--accent-strong);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 .timeline {

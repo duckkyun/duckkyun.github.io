@@ -1,15 +1,18 @@
+export const substackUrl = 'https://substack.com/@fides3';
+export const earnedCreditsPdfUrl = '/docs/earned-credits.pdf';
+
 export const siteNav = [
   { label: 'Overview', href: '/#overview' },
   { label: 'Research', href: '/#research' },
   { label: 'Experience', href: '/#experience' },
-  { label: 'Writing', href: '/#writing' },
+  { label: 'Blog', href: substackUrl, external: true },
   { label: 'GitHub', href: 'https://github.com/duckkyun', external: true },
 ];
 
 export const heroStats = [
   { label: 'Expected graduation', value: 'August 2026' },
-  { label: 'Overall GPA', value: '4.32 / 4.5' },
-  { label: 'Major GPA', value: '4.32 / 4.5' },
+  { label: 'Overall GPA', value: '4.32 / 4.5', href: earnedCreditsPdfUrl },
+  { label: 'Major GPA', value: '4.32 / 4.5', href: earnedCreditsPdfUrl },
   { label: 'Credits completed', value: '132' },
 ];
 
@@ -21,10 +24,10 @@ export const contactCards = [
     description: 'Projects, experiments, and code snapshots.',
   },
   {
-    label: 'Writing archive',
-    value: '/posts/',
-    href: '/posts/',
-    description: 'Notes and blog posts published on this site.',
+    label: 'Personal blog',
+    value: 'substack.com/@fides3',
+    href: substackUrl,
+    description: 'My external personal blog on Substack.',
   },
   {
     label: 'Base',

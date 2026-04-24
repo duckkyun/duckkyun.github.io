@@ -1,10 +1,9 @@
 ---
-import PostList from '../components/PostList.astro';
 import SiteShell from '../components/SiteShell.astro';
-import { posts } from '../data/blog';
 import {
   contactCards,
   education,
+  earnedCreditsPdfUrl,
   experience,
   heroStats,
   highlights,
@@ -12,10 +11,9 @@ import {
   overviewParagraphs,
   researchAreas,
   researchThemes,
+  substackUrl,
   strengths,
 } from '../data/profile';
-
-const recentPosts = posts.slice(0, 3);
 ---
 
 <SiteShell
@@ -42,7 +40,14 @@ const recentPosts = posts.slice(0, 3);
           <div class="action-row">
             <a class="button-link primary" href="/#experience">View experience</a>
             <a class="button-link" href="/#research">Research interests</a>
-            <a class="button-link subtle" href="/posts/">Writing archive</a>
+            <a
+              class="button-link subtle"
+              href={substackUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Personal blog
+            </a>
           </div>
         </div>
 
@@ -52,7 +57,18 @@ const recentPosts = posts.slice(0, 3);
             {heroStats.map((item) => (
               <article class="metric-card">
                 <span class="metric-label">{item.label}</span>
-                <strong class="metric-value">{item.value}</strong>
+                {item.href ? (
+                  <a
+                    class="metric-link"
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <strong class="metric-value">{item.value}</strong>
+                )}
               </article>
             ))}
           </div>
@@ -171,6 +187,15 @@ const recentPosts = posts.slice(0, 3);
               <li>{item}</li>
             ))}
           </ul>
+
+          <div class="divider" aria-hidden="true"></div>
+
+          <p class="document-note">
+            GPA figures link to the current academic record PDF.
+            <a href={earnedCreditsPdfUrl} target="_blank" rel="noreferrer">
+              Open the document
+            </a>
+          </p>
         </article>
       </div>
     </section>
@@ -192,22 +217,6 @@ const recentPosts = posts.slice(0, 3);
           </article>
         ))}
       </div>
-    </section>
-
-    <section class="section-card" id="writing">
-      <div class="section-header">
-        <div class="section-heading compact">
-          <p class="archive-eyebrow">Writing</p>
-          <h2>Notes and posts</h2>
-          <p class="section-lede">
-            A small archive for reflections, technical notes, and updates published through
-            this site.
-          </p>
-        </div>
-        <a class="section-link" href="/posts/">See all posts</a>
-      </div>
-
-      <PostList posts={recentPosts} />
     </section>
   </div>
 </SiteShell>
