@@ -31,13 +31,13 @@ export type TaxonomyGroup = TaxonomyItem & {
 
 const rawPosts: RawPost[] = [
   {
-    title: '첫 글: 블로그를 시작합니다',
+    title: 'First Post: Starting the Archive',
     slug: 'first-post',
     date: '2026-03-02T10:00:00+09:00',
     summary:
-      'duckkyun.github.io 블로그의 첫 번째 글로, 앞으로 기록하고 싶은 글의 방향을 간단히 정리한 글입니다.',
-    categories: ['blog', 'jekyll'],
-    tags: ['github-pages', 'minimal-mistakes', '시작'],
+      'A short note about using this website as a home for writing, project logs, and small research-adjacent reflections.',
+    categories: ['blog', 'notes'],
+    tags: ['astro', 'github-pages', 'launch'],
   },
 ];
 

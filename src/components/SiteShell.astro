@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { categories, tags } from '../data/blog';
+import { siteNav } from '../data/profile';
 
 interface Props {
   title?: string;
@@ -9,92 +9,65 @@ interface Props {
 
 const {
   title = 'Duck-kyun Woo',
-  description = 'Personal homepage and archive of Duck-kyun Woo.',
+  description = 'Responsive personal website of Duck-kyun Woo.',
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
 
-const primaryLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Categories', href: '/categories/' },
-  { label: 'Posts', href: '/posts/' },
-  { label: 'Tags', href: '/tags/' },
-];
-
 function isActive(href: string) {
-  if (href === '/') {
+  if (/^https?:\/\//.test(href)) {
+    return false;
+  }
+
+  const [target] = href.split('#');
+  const resolvedTarget = target || '/';
+
+  if (resolvedTarget === '/') {
     return pathname === '/';
   }
 
-  return pathname === href || pathname.startsWith(href);
+  return pathname === resolvedTarget || pathname.startsWith(resolvedTarget);
 }
 ---
 
 <Layout title={title} description={description}>
-  <header class="site-header">
-    <div class="page-shell header-inner">
-      <a class="brand" href="/">Duck-kyun Woo</a>
-      <nav class="header-nav" aria-label="Primary">
-        {primaryLinks.map((link) => (
-          <a class={isActive(link.href) ? 'active' : ''} href={link.href}>
-            {link.label}
-          </a>
-        ))}
-        <a href="https://github.com/duckkyun" target="_blank" rel="noreferrer">GitHub</a>
-      </nav>
-    </div>
-  </header>
+  <div class="site-bg">
+    <header class="site-header">
+      <div class="site-frame header-row">
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true">DW</span>
+          <span class="brand-copy">
+            <strong>Duck-kyun Woo</strong>
+            <span>Responsive CV Website</span>
+          </span>
+        </a>
 
-  <main>
-    <div class="page-shell page-grid">
-      <aside class="sidebar">
-        <nav class="sidebar-nav" aria-label="Section">
-          <a class={`sidebar-link home-link ${pathname === '/' ? 'active' : ''}`} href="/">
-            Home
-          </a>
-
-          <section class="sidebar-group">
-            <p class="sidebar-heading">Categories</p>
-            <ul class="sidebar-nested">
-              {categories.map((category) => (
-                <li>
-                  <a
-                    class={`sidebar-link ${pathname === category.url ? 'active' : ''}`}
-                    href={category.url}
-                  >
-                    {category.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section class="sidebar-group">
-            <p class="sidebar-heading">Tags</p>
-            <div class="sidebar-tag-cloud">
-              {tags.map((tag) => (
-                <a
-                  class={`tag-chip ${pathname === tag.url ? 'active' : ''}`}
-                  href={tag.url}
-                >
-                  #{tag.name}
-                </a>
-              ))}
-            </div>
-          </section>
+        <nav class="site-nav" aria-label="Primary">
+          {siteNav.map((item) => (
+            <a
+              class={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+              href={item.href}
+              target={item.external ? '_blank' : undefined}
+              rel={item.external ? 'noreferrer' : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
-      </aside>
+      </div>
+    </header>
 
-      <section class="content-column">
+    <main class="site-main">
+      <div class="site-frame">
         <slot />
-      </section>
-    </div>
-  </main>
+      </div>
+    </main>
 
-  <footer class="site-footer">
-    <div class="page-shell footer-inner">
-      <p>Duck-kyun Woo</p>
-      <p>Built with Astro and deployed via GitHub Pages.</p>
-    </div>
-  </footer>
+    <footer class="site-footer">
+      <div class="site-frame footer-row">
+        <p>Duck-kyun Woo</p>
+        <p>Built with Astro for a mobile-first personal web presence.</p>
+      </div>
+    </footer>
+  </div>
 </Layout>

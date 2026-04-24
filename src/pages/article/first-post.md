@@ -1,25 +1,23 @@
 ---
 layout: ../../layouts/PostPage.astro
-title: "첫 글: 블로그를 시작합니다"
+title: "First Post: Starting the Archive"
 date: 2026-03-02T10:00:00+09:00
-summary: "duckkyun.github.io 블로그의 첫 번째 글로, 앞으로 기록하고 싶은 글의 방향을 간단히 정리한 글입니다."
+summary: "A short note about using this site as a home for writing, project logs, and small reflections."
 categories:
   - blog
-  - jekyll
+  - notes
 tags:
+  - astro
   - github-pages
-  - minimal-mistakes
-  - 시작
+  - launch
 ---
 
-안녕하세요!
+This is the first post on `duckkyun.github.io`.
 
-이 글은 `duckkyun.github.io` 블로그의 첫 번째 글입니다.
+I am using this space as a lightweight archive for:
 
-앞으로 아래와 같은 내용을 기록할 예정입니다.
+1. Study notes
+2. Project updates
+3. Small reflections on what I am learning
 
-1. 개발 메모
-2. 트러블슈팅 정리
-3. 배운 내용 아카이브
-
-카테고리(`categories`)와 태그(`tags`)도 함께 사용해서 글을 구조적으로 관리해보겠습니다.
+The goal is to keep the site simple, searchable, and easy to grow over time.
