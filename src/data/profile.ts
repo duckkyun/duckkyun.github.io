@@ -19,18 +19,21 @@ export const gpaSummary = {
 
 export const contactCards = [
   {
+    icon: 'github',
     label: 'GitHub',
     value: 'github.com/duckkyun',
     href: 'https://github.com/duckkyun',
     description: 'Projects, experiments, and code snapshots.',
   },
   {
+    icon: 'substack',
     label: 'Personal blog',
     value: 'substack.com/@fides3',
     href: substackUrl,
     description: 'My external personal blog on Substack.',
   },
   {
+    icon: 'yonsei',
     label: 'Lab homepage',
     value: 'duckkyun.github.io/lab-website-test',
     href: advisorHomepageUrl,
