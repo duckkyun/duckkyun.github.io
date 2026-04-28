@@ -239,20 +239,13 @@ pre {
   pointer-events: none;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.95fr);
-  gap: 24px;
-  align-items: start;
-}
-
+.hero-stack-panel,
 .hero-copy {
   display: grid;
   gap: 18px;
 }
 
-.section-eyebrow,
-.panel-kicker {
+.section-eyebrow {
   color: var(--accent);
   font-size: 0.82rem;
   font-weight: 800;
@@ -304,6 +297,8 @@ pre {
 .info-list,
 .research-layout,
 .research-theme-list,
+.snapshot-academics,
+.snapshot-links,
 .two-column-grid,
 .three-column-grid {
   display: grid;
@@ -392,6 +387,24 @@ pre {
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.hero-divider,
+.snapshot-divider {
+  margin: 0;
+}
+
+.snapshot-academics {
+  grid-template-columns: minmax(320px, 1.2fr) minmax(260px, 0.8fr);
+  align-items: stretch;
+}
+
+.snapshot-links {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.snapshot-link-card {
+  padding: 0;
 }
 
 .info-copy {
@@ -554,9 +567,10 @@ pre {
     align-items: flex-start;
   }
 
-  .hero-grid,
   .research-layout,
   .research-theme-list,
+  .snapshot-academics,
+  .snapshot-links,
   .three-column-grid {
     grid-template-columns: 1fr;
   }

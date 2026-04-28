@@ -22,7 +22,7 @@ import {
 >
   <div class="home-stack">
     <section class="hero-section">
-      <div class="hero-grid">
+      <div class="hero-stack-panel">
         <div class="hero-copy">
           <p class="section-eyebrow">Personal website</p>
           <h1 class="display-title">Duck-kyun Woo</h1>
@@ -32,41 +32,54 @@ import {
           </p>
         </div>
 
-        <aside class="hero-panel">
-          <p class="panel-kicker">Quick Snapshot</p>
-          <article class="metric-card foundation-card">
-            <span class="metric-label">Academic foundation</span>
-            <strong class="foundation-title">{education.institution}</strong>
-            <p class="foundation-degree">{education.degree}</p>
-            <ul class="detail-list foundation-list">
-              <li>{education.period}</li>
-              <li>{education.location}</li>
-            </ul>
-          </article>
+        <div class="divider hero-divider" aria-hidden="true"></div>
 
-          <article class="metric-card">
-            <span class="metric-label">Academic record</span>
-            <div class="gpa-grid">
-              <div class="gpa-item">
-                <span class="gpa-label">Overall GPA</span>
-                <a class="metric-link" href={gpaSummary.href} target="_blank" rel="noreferrer">
-                  {gpaSummary.overall}
-                </a>
+        <section class="hero-panel">
+          <div class="snapshot-academics">
+            <article class="metric-card foundation-card">
+              <span class="metric-label">Academic foundation</span>
+              <strong class="foundation-title">{education.institution}</strong>
+              <p class="foundation-degree">{education.degree}</p>
+              <ul class="detail-list foundation-list">
+                <li>{education.period}</li>
+                <li>{education.location}</li>
+              </ul>
+            </article>
+
+            <article class="metric-card">
+              <span class="metric-label">Academic record</span>
+              <div class="gpa-grid">
+                <div class="gpa-item">
+                  <span class="gpa-label">Overall GPA</span>
+                  <a
+                    class="metric-link"
+                    href={gpaSummary.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {gpaSummary.overall}
+                  </a>
+                </div>
+                <div class="gpa-item">
+                  <span class="gpa-label">Major GPA</span>
+                  <a
+                    class="metric-link"
+                    href={gpaSummary.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {gpaSummary.major}
+                  </a>
+                </div>
               </div>
-              <div class="gpa-item">
-                <span class="gpa-label">Major GPA</span>
-                <a class="metric-link" href={gpaSummary.href} target="_blank" rel="noreferrer">
-                  {gpaSummary.major}
-                </a>
-              </div>
-            </div>
-          </article>
+            </article>
+          </div>
 
-          <div class="divider" aria-hidden="true"></div>
+          <div class="divider snapshot-divider" aria-hidden="true"></div>
 
-          <div class="info-list">
+          <div class="snapshot-links">
             {contactCards.map((item) => (
-              <article class="info-item">
+              <article class="info-item snapshot-link-card">
                 <span class="info-label">{item.label}</span>
                 {item.href ? (
                   <a
@@ -84,7 +97,7 @@ import {
               </article>
             ))}
           </div>
-        </aside>
+        </section>
       </div>
     </section>
 
