@@ -42,7 +42,7 @@ export const contactCards = [
 ];
 
 export const aboutMeParagraphs = [
-  'I am an undergraduate student at Konkuk University with a double major in Cosmetics Engineering and Advanced Biotechnology. My current trajectory centers on microbiome research, immune homeostasis, and translational biomedical science.',
+  'I am an undergraduate student at Konkuk University with a double major in Cosmetics Engineering and Advanced Biotechnology. My interdisciplinary training in cosmetics engineering and biomedical engineering has shaped my interest in skin biology, immune responses, and translational research.',
   'Alongside coursework, I have built experience through internships, workshops, and teaching. That mix of lab interest, quantitative study, and communication work is shaping the kind of researcher I want to become.',
 ];
 
@@ -128,7 +128,7 @@ export const experience = [
   },
   {
     date: '2022.09 - 2024.08',
-    title: 'Math and Science Instructor at Eduplex Educoach',
+    title: 'Math and Science Tutor at Nexcube Corp.',
     description:
       'Taught mathematics and science to middle and high school students in Mokdong.',
   },
