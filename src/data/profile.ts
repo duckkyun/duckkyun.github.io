@@ -5,7 +5,7 @@ export const advisorHomepageUrl =
 
 export const siteNav = [
   { label: 'Overview', href: '/#overview' },
-  { label: 'Research', href: '/#research' },
+  { label: 'Research', href: '/#interests' },
   { label: 'Experience', href: '/#experience' },
   { label: 'Blog', href: substackUrl, external: true },
   { label: 'GitHub', href: 'https://github.com/duckkyun', external: true },
@@ -33,7 +33,7 @@ export const contactCards = [
     description: 'My external personal blog on Substack.',
   },
   {
-    icon: 'yonsei',
+    icon: 'beaker',
     label: 'Lab homepage',
     value: 'duckkyun.github.io/lab-website-test',
     href: advisorHomepageUrl,
@@ -47,9 +47,9 @@ export const aboutMeParagraphs = [
 ];
 
 export const highlights = [
-  'Entered Konkuk University with distinction.',
-  'Top-ranked entrant in the Department of Cosmetics Engineering.',
+  'Entered Konkuk University as the second-ranked entrant in the college and the top-ranked entrant in the Department of Cosmetics Engineering.',
   'Full scholarship recipient.',
+  'Completed a winter internship in biomedical sciences at Yonsei University College of Medicine.',
 ];
 
 export const researchAreas = [
