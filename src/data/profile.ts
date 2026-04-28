@@ -1,5 +1,7 @@
 export const substackUrl = 'https://substack.com/@fides3';
 export const earnedCreditsPdfUrl = '/docs/earned-credits.pdf';
+export const advisorHomepageUrl =
+  'https://duckkyun.github.io/lab-website-test/';
 
 export const siteNav = [
   { label: 'Overview', href: '/#overview' },
@@ -30,9 +32,10 @@ export const contactCards = [
     description: 'My external personal blog on Substack.',
   },
   {
-    label: 'Base',
-    value: 'Seoul, South Korea',
-    description: 'Studying at Konkuk University and preparing for the next research step.',
+    label: 'Lab homepage',
+    value: 'duckkyun.github.io/lab-website-test',
+    href: advisorHomepageUrl,
+    description: 'Advisor: Ji-Hwan Ryu',
   },
 ];
 
