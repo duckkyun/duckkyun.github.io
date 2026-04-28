@@ -267,9 +267,10 @@ pre {
 }
 
 .display-title {
-  font-size: clamp(3rem, 9vw, 6.4rem);
+  font-size: clamp(2.35rem, 8vw, 5.6rem);
   line-height: 0.94;
-  max-width: 10ch;
+  max-width: none;
+  white-space: nowrap;
 }
 
 .hero-lead,
@@ -295,10 +296,11 @@ pre {
 }
 
 .hero-panel {
+  display: grid;
+  gap: 18px;
   background: linear-gradient(180deg, rgba(27, 107, 99, 0.1), rgba(255, 255, 255, 0.78));
 }
 
-.metric-grid,
 .info-list,
 .research-layout,
 .research-theme-list,
@@ -306,10 +308,6 @@ pre {
 .three-column-grid {
   display: grid;
   gap: 18px;
-}
-
-.metric-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .metric-card {
@@ -351,6 +349,49 @@ pre {
 
 .metric-link:hover {
   color: var(--warm);
+}
+
+.foundation-card {
+  display: grid;
+  gap: 10px;
+}
+
+.foundation-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.foundation-degree {
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.foundation-list {
+  gap: 8px;
+}
+
+.foundation-list li {
+  font-size: 0.95rem;
+}
+
+.gpa-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.gpa-item {
+  display: grid;
+  gap: 4px;
+}
+
+.gpa-label {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .info-copy {
@@ -553,7 +594,7 @@ pre {
     display: none;
   }
 
-  .metric-grid,
+  .gpa-grid,
   .two-column-grid {
     grid-template-columns: 1fr;
   }

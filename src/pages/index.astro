@@ -6,11 +6,11 @@ import {
   education,
   earnedCreditsPdfUrl,
   experience,
-  researchFocusSummary,
-  heroStats,
+  gpaSummary,
   highlights,
   languageScores,
   researchAreas,
+  researchFocusSummary,
   researchThemes,
   strengths,
 } from '../data/profile';
@@ -24,7 +24,7 @@ import {
     <section class="hero-section">
       <div class="hero-grid">
         <div class="hero-copy">
-          <p class="section-eyebrow">Curriculum vitae based website</p>
+          <p class="section-eyebrow">Personal website</p>
           <h1 class="display-title">Duck-kyun Woo</h1>
           <p class="hero-lead">
             An undergraduate at Konkuk University preparing for research-driven work in
@@ -34,25 +34,33 @@ import {
 
         <aside class="hero-panel">
           <p class="panel-kicker">Quick Snapshot</p>
-          <div class="metric-grid">
-            {heroStats.map((item) => (
-              <article class="metric-card">
-                <span class="metric-label">{item.label}</span>
-                {item.href ? (
-                  <a
-                    class="metric-link"
-                    href={item.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {item.value}
-                  </a>
-                ) : (
-                  <strong class="metric-value">{item.value}</strong>
-                )}
-              </article>
-            ))}
-          </div>
+          <article class="metric-card foundation-card">
+            <span class="metric-label">Academic foundation</span>
+            <strong class="foundation-title">{education.institution}</strong>
+            <p class="foundation-degree">{education.degree}</p>
+            <ul class="detail-list foundation-list">
+              <li>{education.period}</li>
+              <li>{education.location}</li>
+            </ul>
+          </article>
+
+          <article class="metric-card">
+            <span class="metric-label">Academic record</span>
+            <div class="gpa-grid">
+              <div class="gpa-item">
+                <span class="gpa-label">Overall GPA</span>
+                <a class="metric-link" href={gpaSummary.href} target="_blank" rel="noreferrer">
+                  {gpaSummary.overall}
+                </a>
+              </div>
+              <div class="gpa-item">
+                <span class="gpa-label">Major GPA</span>
+                <a class="metric-link" href={gpaSummary.href} target="_blank" rel="noreferrer">
+                  {gpaSummary.major}
+                </a>
+              </div>
+            </div>
+          </article>
 
           <div class="divider" aria-hidden="true"></div>
 
@@ -144,22 +152,14 @@ import {
     <section class="section-card" id="education">
       <div class="section-heading">
         <p class="section-eyebrow">Education</p>
-        <h2>Academic foundation and supporting skills</h2>
+        <h2>Preparation and supporting skills</h2>
       </div>
 
       <div class="two-column-grid">
         <article class="surface-card">
-          <h3>{education.institution}</h3>
-          <p class="card-accent">{education.degree}</p>
-          <ul class="detail-list">
-            <li>{education.period}</li>
-            <li>{education.location}</li>
-          </ul>
+          <h3>Current preparation</h3>
+          <p class="card-accent">Interdisciplinary undergraduate training</p>
           <p>{education.description}</p>
-        </article>
-
-        <article class="surface-card">
-          <h3>Strengths and credentials</h3>
           <ul class="feature-list">
             {strengths.map((item) => (
               <li>{item}</li>

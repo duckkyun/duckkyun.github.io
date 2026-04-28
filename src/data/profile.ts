@@ -11,12 +11,11 @@ export const siteNav = [
   { label: 'GitHub', href: 'https://github.com/duckkyun', external: true },
 ];
 
-export const heroStats = [
-  { label: 'Expected graduation', value: 'August 2026' },
-  { label: 'Overall GPA', value: '4.32 / 4.5', href: earnedCreditsPdfUrl },
-  { label: 'Major GPA', value: '4.32 / 4.5', href: earnedCreditsPdfUrl },
-  { label: 'Credits completed', value: '132' },
-];
+export const gpaSummary = {
+  overall: '4.32 / 4.5',
+  major: '4.32 / 4.5',
+  href: earnedCreditsPdfUrl,
+};
 
 export const contactCards = [
   {
@@ -145,6 +144,5 @@ export const experience = [
 ];
 
 export const languageScores = [
-  'TOEIC 825 (RC 430, LC 395), February 2025',
   'TEPS 350, March 2026',
 ];
