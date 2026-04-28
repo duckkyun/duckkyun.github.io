@@ -79,7 +79,7 @@ export const researchThemes = [
 
 export const education = {
   institution: 'Konkuk University',
-  degree: 'B.S. Double Major in Cosmetics Engineering and Advanced Biotechnology',
+  degree: 'B.S. in Cosmetics Engineering & Advanced Biotechnology (double major)',
   period: 'March 2021 - August 2026 (expected)',
   location: 'Seoul, South Korea',
   description:

@@ -44,34 +44,17 @@ import {
                 <li>{education.period}</li>
                 <li>{education.location}</li>
               </ul>
-            </article>
-
-            <article class="metric-card">
-              <span class="metric-label">Academic record</span>
-              <div class="gpa-grid">
-                <div class="gpa-item">
-                  <span class="gpa-label">Overall GPA</span>
-                  <a
-                    class="metric-link"
-                    href={gpaSummary.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {gpaSummary.overall}
-                  </a>
-                </div>
-                <div class="gpa-item">
-                  <span class="gpa-label">Major GPA</span>
-                  <a
-                    class="metric-link"
-                    href={gpaSummary.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {gpaSummary.major}
-                  </a>
-                </div>
-              </div>
+              <p class="gpa-inline-row">
+                <span class="gpa-inline-label">GPA :</span>
+                <a
+                  class="metric-link gpa-inline-link"
+                  href={gpaSummary.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {gpaSummary.overall} ({gpaSummary.major} Major)
+                </a>
+              </p>
             </article>
           </div>
 
