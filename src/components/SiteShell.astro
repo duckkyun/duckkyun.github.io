@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { siteNav } from '../data/profile';
+import { gpaSummary, siteNav } from '../data/profile';
 
 interface Props {
   title?: string;
@@ -16,6 +16,10 @@ const pathname = Astro.url.pathname;
 
 function isActive(href: string) {
   if (/^https?:\/\//.test(href)) {
+    return false;
+  }
+
+  if (href.includes('#')) {
     return false;
   }
 
@@ -41,18 +45,24 @@ function isActive(href: string) {
           </span>
         </a>
 
-        <nav class="site-nav" aria-label="Primary">
-          {siteNav.map((item) => (
-            <a
-              class={`nav-link ${isActive(item.href) ? 'active' : ''}`}
-              href={item.href}
-              target={item.external ? '_blank' : undefined}
-              rel={item.external ? 'noreferrer' : undefined}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <div class="nav-cluster">
+          <nav class="site-nav" aria-label="Primary">
+            {siteNav.map((item) => (
+              <a
+                class={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+                href={item.href}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noreferrer' : undefined}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <a class="header-cta" href={gpaSummary.href} target="_blank" rel="noreferrer">
+            View transcript
+          </a>
+        </div>
       </div>
     </header>
 
@@ -65,7 +75,7 @@ function isActive(href: string) {
     <footer class="site-footer">
       <div class="site-frame footer-row">
         <p>Duck-kyun Woo</p>
-        <p>Built with Astro for a mobile-first personal web presence.</p>
+        <p>Built with Astro and Pretendard for a research-oriented personal web presence.</p>
       </div>
     </footer>
   </div>
